@@ -28,16 +28,66 @@ let spellTray = [null, null];
 let lastInvokedSpell = null;
 
 const spellData = [
-  { name: "Cold Snap", combination: "QQQ", icon: "./img/cold_snap.png" },
-  { name: "Ghost Walk", combination: "QQW", icon: "./img/ghost_walk.png" },
-  { name: "Ice Wall", combination: "QQE", icon: "./img/ice_wall.png" },
-  { name: "EMP", combination: "WWW", icon: "./img/emp.png" },
-  { name: "Tornado", combination: "WWQ", icon: "./img/tornado.png" },
-  { name: "Alacrity", combination: "WWE", icon: "./img/alacrity.png" },
-  { name: "Sun Strike", combination: "EEE", icon: "./img/sun_strike.png" },
-  { name: "Forge Spirit", combination: "EEQ", icon: "./img/forge_spirit.png" },
-  { name: "Chaos Meteor", combination: "EWW", icon: "./img/chaos_meteor.png" },
-  { name: "Deafening Blast", combination: "QWE", icon: "./img/deafening_blast.png" },
+  {
+    name: "Cold Snap",
+    combination: "QQQ",
+    icon: "./img/cold_snap.png",
+    effect: "Applies a debuff that causes enemies to be stunned briefly and take damage each time they are damaged."
+  },
+  {
+    name: "Ghost Walk",
+    combination: "QQW",
+    icon: "./img/ghost_walk.png",
+    effect: "Turns Invoker invisible and slows nearby enemies. Movement speed is reduced while invisible."
+  },
+  {
+    name: "Ice Wall",
+    combination: "QQE",
+    icon: "./img/ice_wall.png",
+    effect: "Creates a wall of ice that slows and damages enemies who walk through it."
+  },
+  {
+    name: "EMP",
+    combination: "WWW",
+    icon: "./img/emp.png",
+    effect: "Generates a pulse that drains mana from enemies and deals damage based on the amount drained."
+  },
+  {
+    name: "Tornado",
+    combination: "WWQ",
+    icon: "./img/tornado.png",
+    effect: "Launches a tornado that lifts enemies into the air, damaging and purging them."
+  },
+  {
+    name: "Alacrity",
+    combination: "WWE",
+    icon: "./img/alacrity.png",
+    effect: "Increases an allied unit’s attack speed and damage for a short duration."
+  },
+  {
+    name: "Sun Strike",
+    combination: "EEE",
+    icon: "./img/sun_strike.png",
+    effect: "After a delay, deals global pure damage in a small area at the target location."
+  },
+  {
+    name: "Forge Spirit",
+    combination: "EEQ",
+    icon: "./img/forge_spirit.png",
+    effect: "Summons a spirit with long range attack and armor reduction. Number of spirits increases with level."
+  },
+  {
+    name: "Chaos Meteor",
+    combination: "EWW",
+    icon: "./img/chaos_meteor.png",
+    effect: "Summons a flaming meteor that rolls forward, dealing damage on impact and leaving a burning trail."
+  },
+  {
+    name: "Deafening Blast",
+    combination: "QWE",
+    icon: "./img/deafening_blast.png",
+    effect: "Releases a powerful wave that damages, knocks back, and disarms enemies hit."
+  }
 ];
 
 const guideContainer = document.getElementById("guide-container");
@@ -159,8 +209,27 @@ function populateSpellGuide() {
     }
     combinationParagraph.innerHTML = combinationHTML;
 
+    // Tooltip modal logic
+    const modal = document.getElementById("spell-modal");
+    const modalContent = document.getElementById("modal-content");
+
+    spellEntryDiv.addEventListener("mouseenter", (e) => {
+      modalContent.textContent = spell.effect || "No effect description available.";
+      modal.classList.remove("hidden");
+    });
+
+    spellEntryDiv.addEventListener("mousemove", (e) => {
+      modal.style.top = `${e.clientY + 15}px`;
+      modal.style.left = `${e.clientX + 15}px`;
+    });
+
+    spellEntryDiv.addEventListener("mouseleave", () => {
+      modal.classList.add("hidden");
+    });
+
     guideContainer.appendChild(spellEntryDiv);
   });
 }
+
 
 populateSpellGuide();

@@ -237,3 +237,21 @@ body {
 .spell-entry p span.e {
   color: #e57373;
 }
+
+#spell-modal {
+  position: absolute;
+  background: rgba(30, 30, 30, 0.95);
+  color: white;
+  padding: 10px 12px;
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 1000;
+  max-width: 240px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-size: 0.95em;
+  transition: opacity 0.1s ease;
+}
+
+.hidden {
+  display: none;
+}
