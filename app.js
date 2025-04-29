@@ -28,16 +28,16 @@ let spellTray = [null, null];
 let lastInvokedSpell = null;
 
 const spellData = [
-  { name: "Cold Snap", combination: "QQQ", icon: "cold_snap.png" },
-  { name: "Ghost Walk", combination: "QQW", icon: "ghost_walk.png" },
-  { name: "Ice Wall", combination: "QQE", icon: "ice_wall.png" },
-  { name: "EMP", combination: "WWW", icon: "emp.png" },
-  { name: "Tornado", combination: "WWQ", icon: "tornado.png" },
-  { name: "Alacrity", combination: "WWE", icon: "alacrity.png" },
-  { name: "Sun Strike", combination: "EEE", icon: "sun_strike.png" },
-  { name: "Forge Spirit", combination: "EEQ", icon: "forge_spirit.png" },
-  { name: "Chaos Meteor", combination: "EWW", icon: "chaos_meteor.png" },
-  { name: "Deafening Blast", combination: "QWE", icon: "deafening_blast.png" },
+  { name: "Cold Snap", combination: "QQQ", icon: "./img/cold_snap.png" },
+  { name: "Ghost Walk", combination: "QQW", icon: "./img/ghost_walk.png" },
+  { name: "Ice Wall", combination: "QQE", icon: "./img/ice_wall.png" },
+  { name: "EMP", combination: "WWW", icon: "./img/emp.png" },
+  { name: "Tornado", combination: "WWQ", icon: "./img/tornado.png" },
+  { name: "Alacrity", combination: "WWE", icon: "./img/alacrity.png" },
+  { name: "Sun Strike", combination: "EEE", icon: "./img/sun_strike.png" },
+  { name: "Forge Spirit", combination: "EEQ", icon: "./img/forge_spirit.png" },
+  { name: "Chaos Meteor", combination: "EWW", icon: "./img/chaos_meteor.png" },
+  { name: "Deafening Blast", combination: "QWE", icon: "./img/deafening_blast.png" },
 ];
 
 const guideContainer = document.getElementById("guide-container");
@@ -60,11 +60,11 @@ function addOrb(orb) {
 function orbToFilename(orb) {
   switch (orb) {
     case "Q":
-      return "quas.png";
+      return "./img/quas.png";
     case "W":
-      return "wex.png";
+      return "./img/wex.png";
     case "E":
-      return "exort.png";
+      return "./img/exort.png";
     default:
       return "";
   }
@@ -119,8 +119,8 @@ function triggerSpell(slot) {
 }
 
 function getImageForSpell(spellName) {
-  if (!spellName) return "no_spell.png";
-  return `${spellName.toLowerCase().replace(/ /g, "_")}.png`;
+  if (!spellName) return "./img/no_spell.png";
+  return `./img/${spellName.toLowerCase().replace(/ /g, "_")}.png`;
 }
 
 function getSpell(orbs) {
