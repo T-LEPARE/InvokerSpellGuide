@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invoker Practice Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="main-layout">
+    <div id="game-container">
+      <div id="current-combination">
+        <span id="combination">Press <span class="q">Q</span>, <span class="w">W</span> or <span class="e">E</span> to start.</span>
+      </div>
+
+      <div id="orb-controls">
+        <button class="orb-button orb-icon-button" onclick="pressOrb('q')">
+          <img src="quas.png" alt="Quas">
+        </button>
+        <button class="orb-button orb-icon-button" onclick="pressOrb('w')">
+          <img src="wex.png" alt="Wex">
+        </button>
+        <button class="orb-button orb-icon-button" onclick="pressOrb('e')">
+          <img src="exort.png" alt="Exort">
+        </button>
+        <button class="orb-button orb-icon-button" onclick="invokeSpell()">
+          <img src="invoke.png" alt="Invoke">
+        </button>
+      </div>
+
+      <div id="spell-tray">
+        <div id="spell1" class="spell-slot">
+          <img src="no_spell.png" />
+        </div>
+        <div id="spell2" class="spell-slot">
+          <img src="no_spell.png" />
+        </div>
+      </div>
+    </div>
+
+    <div id="guide-container">
+      <h1>Invoker Spell Guide</h1>
+      <template id="spell-entry-template">
+        <div class="spell-entry">
+          <div class="spell-icon"><img data-spell-icon alt=""></div>
+          <div class="spell-text">
+            <h2 data-spell-name></h2>
+            <p data-spell-combination></p>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

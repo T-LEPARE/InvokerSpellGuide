@@ -1,0 +1,239 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #181818;
+  color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-layout {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  max-width: 1280px; 
+  margin: 30px;
+  border-radius: 12px; 
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  background-color: #222;
+  justify-content: space-between;
+}
+
+#game-container {
+  padding: 30px;
+  background-color: #282828;
+  flex: 0 1 450px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+#current-combination {
+  text-align: center;
+  font-size: 22px;
+  color: #eee;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 8px;
+}
+
+#current-combination span {
+  font-weight: bold;
+}
+
+#current-combination .orb-image {
+  height: 28px;
+  width: 28px;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+#orb-controls {
+  display: grid; /* Use grid for better control over button layout */
+  grid-template-columns: repeat(4, 1fr); /* Create 4 equal columns */
+  gap: 50px;
+}
+
+.orb-button {
+  position: relative;
+  border: none;
+  background-color: #444;
+  cursor: pointer;
+  padding: 0; /* Remove padding from the button itself */
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  overflow: hidden; /* Clip the image to the button's border-radius */
+  display: flex; /* Center the image within the button */
+  justify-content: center;
+  align-items: center;
+}
+
+.orb-button:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+.orb-button img {
+  display: block;
+  width: 100%; /* Make the image take the full width */
+  height: 100%; /* Make the image take the full height */
+  object-fit: contain; /* Or 'cover' depending on desired effect */
+  border-radius: inherit; /* Inherit the button's border-radius */
+}
+
+#spell-tray {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.spell-slot {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+}
+
+.spell-slot img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.spell-animation {
+  animation: castSpell 0.2s ease-in-out; /* Faster animation */
+}
+
+@keyframes castSpell {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2); /* More pronounced scale */
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.shortcut-marker {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 11px;
+  color: #eee;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  padding: 3px;
+}
+
+#guide-container {
+  padding: 30px;
+  background-color: #282828;
+  color: #eee;
+  flex: 0 1 650px;
+  overflow-y: auto;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-left: 1px solid #333;
+}
+
+#guide-container h1 {
+  color: #eee;
+  font-size: 2.2em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.spell-entry {
+  margin-bottom: 0.6em;
+  padding-bottom: 0.6em;
+  border-bottom: 1px solid #333;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: center;
+  gap: 15px;
+}
+
+.spell-entry:last-child {
+  border-bottom: none;
+}
+
+.spell-icon {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.spell-icon img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.spell-text {
+  display: flex;
+  gap: 15px;
+  align-items: baseline;
+}
+
+.spell-entry h2 {
+  margin-top: 0;
+  color: #f0f0f0;
+  font-size: 1.4em;
+  margin-bottom: 0;
+}
+
+.spell-entry p {
+  margin: 0;
+  color: #ccc;
+  font-size: 1.1em;
+}
+
+.spell-entry p span {
+  font-weight: bold;
+}
+
+#current-combination span.q,
+.spell-entry p span.q {
+  color: #64b5f6;
+}
+
+#current-combination span.w,
+.spell-entry p span.w {
+  color: #f06292;
+}
+
+#current-combination span.e,
+.spell-entry p span.e {
+  color: #e57373;
+}
